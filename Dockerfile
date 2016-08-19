@@ -15,8 +15,10 @@ RUN	yum update -y && \
 		gcc \
 		openssl-devel && \
 	wget -P /tmp http://downloads.sourceforge.net/proxytunnel/proxytunnel-1.9.0.tgz && \
-	tar zxvf /tmp/proxytunnel-1.9.0.tgz -C /opt/ && \
-	make -C /opt/proxytunnel-1.9.0/ && \
+	tar zxvf /tmp/proxytunnel-1.9.0.tgz -C /tmp/ && \
+	make -C /tmp/proxytunnel-1.9.0/ && \
+	make -C /tmp/proxytunnel-1.9.0/ install && \
+	rm -rf /tmp/proxytunnel-1.9.0 /tmp/proxytunnel-1.9.0.tgz && \
 	gem install rhc && \
 	gem update rhc
 
